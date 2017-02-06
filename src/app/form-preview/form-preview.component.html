@@ -1,0 +1,33 @@
+<div *ngFor="let spec of specification">
+  <div class="row">
+
+    <div class="col-sm-6 ">
+      {{spec?.label}}
+    </div>
+
+    <div class="col-sm-6" *ngIf="(spec?.type === 'textbox')">
+      <input type="{{spec?.type}}" [disabled]="spec?.isReadOnly" [hidden]="spec?.isVisible | visiblity">
+    </div>
+
+    <div class="col-sm-6" *ngIf="(spec?.type === 'checkbox')">
+      <input type="{{spec?.type}}" [disabled]="spec?.isReadOnly" [hidden]="spec?.isVisible | visiblity">
+    </div>
+
+    <div class="col-sm-6" *ngIf="(spec?.type === 'number')">
+      <input type="{{spec?.type}}" [disabled]="spec?.isReadOnly" [hidden]="spec?.isVisible | visiblity ">
+    </div>
+
+    <div class="col-sm-6" *ngIf="(spec?.type === 'dropdown')" [hidden]="spec?.isVisible | visiblity">
+      <select>
+        <option value="volvo">Volvo</option>
+       <option value="saab">Saab</option>
+        <option value="vw">VW</option>
+      </select>
+    </div>
+
+    <div class="col-sm-6" *ngIf="(spec?.type === 'textarea')">
+      <textarea [disabled]="spec?.isReadOnly" [hidden]="spec?.isVisible | visiblity"></textarea>
+    </div>
+
+  </div>
+</div>
